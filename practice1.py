@@ -58,4 +58,6 @@ def simulate(times, bound):
     # TODO:Still need to calculate standard deviation
     return (mean, standard_deviation(steps, mean))
 
-print(simulate(1000, [-49, 50]))
+
+if __name__ == "__main__":
+    print(simulate(100, [-49, 50]))
