@@ -1,4 +1,5 @@
 import random
+import math
 
 def moves(agent, path, bound):
     moves = 0
@@ -43,6 +44,10 @@ def finiteLattice(bound):
         path.add(agent)
     return steps
 
+def standard_deviation(samples, mean):
+    f = lambda x: (x-mean)**2
+    return math.sqrt(sum(map(f, samples))/len(samples))
+
 def simulate(times, bound):
     steps = []
     for i in range(times):
@@ -51,6 +56,6 @@ def simulate(times, bound):
     total = sum(steps)
     mean = total/times
     # TODO:Still need to calculate standard deviation
-    return mean
+    return (mean, standard_deviation(steps, mean))
 
-print(simulate(100, [-49, 50]))
+print(simulate(1000, [-49, 50]))
