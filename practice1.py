@@ -55,9 +55,19 @@ def simulate(times, bound):
 
     total = sum(steps)
     mean = total/times
+    dev = standard_deviation(steps, mean)
+    print("Average Path Length: "+str(mean))
+    print("Standard Deviation: "+str(dev))
     # TODO:Still need to calculate standard deviation
-    return (mean, standard_deviation(steps, mean))
+    return (mean, dev)
 
 
 if __name__ == "__main__":
-    print(simulate(100, [-49, 50]))
+    print("Path Length: ")
+    print(finiteLattice([-49, 50]))
+    print()
+    print("Simulate 100 times: \n")
+    simulate(100, [-49, 50])
+    print()
+    print("Simulate 100 times with 1000x1000 lattice:\n")
+    simulate(100, [-499, 500])
