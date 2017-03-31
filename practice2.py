@@ -80,6 +80,11 @@ def simulate(times):
     print("Size Standard Deviation: "+str(devSize))
 
 if __name__ == "__main__":
+    (steps, dist, size) = infiniteLattice(5000)
+    print("1 Run of Simulation of 5000 steps:\n")
+    print("Distance traveled: " + str(dist))
+    print("Lattice Size: "+ str(size)+"\n")
+
     print("Simulate 10 Times:\n")
     simulate(10)
     print()
