@@ -1,5 +1,6 @@
 import random
 import math
+import csv
 
 class PageRank:
 
@@ -83,9 +84,25 @@ class PageRank:
         for i in output:
             print("{0} {1}".format(i[0],self.nodes[i[0]]))
 
+    def sort(self, rank):
+        paired = [((i+1), rank[i]) for i in range(self.num_nodes)]
+        output = sorted(paired, key = lambda x: x[1], reverse = True)
+        return [x[0] for x in output]
+
+    def outputCSV(self):
+        csvfile = open('practice1.csv', 'w', newline='')
+        writer = csv.writer(csvfile)
+        first = self.sort(self.pageRank([], damp = 0.85))
+        second = self.sort(self.pageRank([], damp = 0.95))
+        third = self.sort(self.pageRank([], damp = 0.50))
+        header = ["rank", "d=0.85","d=0.95","d=0.50"]
+        writer.writerow(header)
+        rows = [[i+1, first[i], second[i], third[i]] for i in range(self.num_nodes)]
+        writer.writerows(rows)
+
 
 if __name__ == "__main__":
     pr = PageRank()
     data = pr.parseInput("hollins.dat")
-    results = pr.pageRank([], damp = 0.50)
-    pr.output()
+    results = pr.pageRank([], damp = 0.85)
+    # pr.outputCSV()
