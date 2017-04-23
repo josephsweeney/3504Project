@@ -56,7 +56,7 @@
     $Pr(B_i|A) = \frac{Pr(A|B_i)Pr(B_i)}{\sum\limits_jPr(A|B_j)Pr(B_j)}$
     \end{center}
 
-    Therefore, the posterior probability of $B_i$ given $A$, written as $Pr(B_i|A)$, is proportional to the product of the likelihood $Pr(A|B_i)$ and the prior probability $Pr(B_i)$, where the normalizing constant $Pr(A) = \sum\limits_jPr(A|B_j)Pr(B_j)$ is the prior probability of $A$.
+    Therefore, the posterior probability of $B_i$ given $A$, written as $Pr(B_i|A)$, is proportional to the product of the likelihood $Pr(A|B_i)$ and the prior probability $Pr(B_i)$, where the normalizing constant $Pr(A) = \sum\limits_jPr(A|B_j)Pr(B_j)$ is the prior probability of $A$ [2].
 
     \qquad This theorem allows autocomplete to calculate the probability of a certain text being searched conditioned on the text that has already been entered and based on the prior probability of making that search. Once these probabilities are calculated, the algorithm can then suggest the search predictions with the highest probabilities and continuously update the predictions based on new text that the user enters.
 
